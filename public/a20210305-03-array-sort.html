@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info">
+</div>
+
+<script>
+    const ar2 = [];
+
+    for(let i=0; i<20; i++){
+        ar2.push( Math.floor(Math.random()*20));
+    }
+    console.log(ar2.join(','));
+    ar2.sort((a, b)=>{
+        // console.log(`a: ${a}, b: ${b}`);
+        return a-b; // 由小到大
+    });
+    console.log(ar2.join(','));
+</script>
+</body>
+</html>

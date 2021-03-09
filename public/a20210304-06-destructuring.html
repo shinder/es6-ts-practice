@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const p1 = {
+    name: "carl",
+    age: 26,
+    gender: "male",
+    data: {a:10, b:20}
+}
+const p2 = p1;
+const p3 = {...p1}; // duplicate, 淺層 copy
+const p4 = {};
+
+for(let i in p1){
+    p4[i] = p1[i];
+}
+
+p1.name = "David";
+p1.data.a = 999;
+
+console.log(p1)
+console.log(p2)
+console.log(p3)
+console.log(p4)
+
+
+</script>
+</body>
+</html>
