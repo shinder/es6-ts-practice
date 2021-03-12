@@ -1,11 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>proxy 的用法</title>
 </head>
 <body>
 <script>
@@ -28,17 +25,12 @@ const myHandler = {
         } else {
             target[prop] = value;
         }
-
     },
 }
 
 const proxy = new Proxy(myTarget, myHandler);
-
-
 console.log(proxy.age);
-
 proxy.age = "77";
-
 console.log(myTarget);
 </script>
 </body>

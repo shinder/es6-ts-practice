@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Promise 物件</title>
 </head>
 <body>
 <script>
@@ -20,18 +20,17 @@
         })
         .then(r=>{
             console.log(`r: ${r}`);
+            throw new Error('my error-');
             return 3;
         })
         .then(r=>{
             console.log(`r: ${r}`);
             return 4;
         })
+        .catch(ex=>{
+            console.log(`ex: ${ex}`);
+        })
     console.log('33333333');
-
-
-
-
-
 </script>
 </body>
 </html>

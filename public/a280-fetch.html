@@ -2,19 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>fetch api</title>
 </head>
 <body>
-<div id="info"></div>
+<pre id="info"></pre>
 <script>
     const info = document.querySelector('#info');
     (async()=>{
-        const r = await fetch('../notes/git-notes.txt');
-        const txt = await r.text();
-        info.innerText = txt;
+        const r = await fetch(location.href);
+        info.innerText = await r.text();
     })();
-
-
 </script>
 </body>
 </html>

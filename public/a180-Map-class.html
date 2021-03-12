@@ -1,12 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+    <title>Map 類型</title>
 </head>
 <body>
 <div id="info">
@@ -24,18 +20,14 @@
     map.set({}, 'Hello');
     map.set({}, 'Hi');
 
+    map.forEach((v, k) => {
+        console.log(k, v);
+    });
+    console.log('------');
     console.log(map.size);
     console.log(map.keys());
-
-
-
-
-
-
-
-
-
-
+    console.log(...map.keys());
+    console.log([...map.values()]);
 </script>
 </body>
 </html>

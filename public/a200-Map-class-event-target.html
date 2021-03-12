@@ -1,11 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Map 類型, event.target</title>
     <style>
         #info {
             position:absolute;
@@ -26,9 +23,7 @@
 <div id="info">
     <div>ttt</div>
 </div>
-<script src="lib/jquery-3.6.0.min.js"></script>
 <script>
-    const info = $('#info');
     const map = new Map;
     const people = [
         {
@@ -50,29 +45,29 @@
     ];
 
     const myClick = function(event){
-        const t = $(event.target);
+        const t = event.target; // 最裡面點到的 element (tag)
         console.log(t);
-        if(t.hasClass('ball')){
-            console.log(map.get(t[0]));
+        if(t.classList.contains('ball')){
+            console.log(map.get(t));
         }
     };
 
 
     for(let i of people){
-        const el =  $(`<div class="ball">${i.name}</div>`);  // create jquery object
-        el.css({
-            width: 60,
-            height: 60,
-            left: Math.random()*400,
-            top: Math.random()*300,
-            lineHeight: '60px',
-            backgroundColor: `hsl(${Math.random()*360},100%,50%)`,
-        })
-        info.append(el);
-        map.set(el[0], i);
+        const el = document.createElement('div');
+        el.className = 'ball';
+        el.style.width = '60px';
+        el.style.height = '60px';
+        el.style.lineHeight = '60px';
+        el.style.backgroundColor = 'red';
+        el.innerHTML = i.name;
+        el.style.left = Math.random()*400 + 'px';
+        el.style.top = Math.random()*300 +'px';
+        info.appendChild(el);
+        map.set(el, i);
     }
 
-    info.on('click', myClick);
+    info.addEventListener('click', myClick);
 
 
 

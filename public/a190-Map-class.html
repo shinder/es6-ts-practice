@@ -1,17 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Map 類型</title>
     <style>
         #info {
             position:absolute;
-            width: 400px;
-            height: 300px;
-            background-color: aqua;
         }
         .ball {
             border-radius:50%;
@@ -24,7 +18,6 @@
 </head>
 <body>
 <div id="info">
-    <div>ttt</div>
 </div>
 <script>
     const map = new Map;
@@ -48,13 +41,8 @@
     ];
 
     const myClick = function(event){
-        const t = event.target; // 最裡面點到的 element (tag)
-        console.log(t);
-        if(t.classList.contains('ball')){
-            console.log(map.get(t));
-        }
+        console.log(map.get(event.currentTarget));
     };
-
 
     for(let i of people){
         const el = document.createElement('div');
@@ -62,26 +50,15 @@
         el.style.width = '60px';
         el.style.height = '60px';
         el.style.lineHeight = '60px';
-        el.style.backgroundColor = 'red';
+        el.style.backgroundColor = `hsl(${Math.random()*360},100%,50%)`;
         el.innerHTML = i.name;
         el.style.left = Math.random()*400 + 'px';
         el.style.top = Math.random()*300 +'px';
         info.appendChild(el);
+
         map.set(el, i);
+        el.addEventListener('click', myClick);
     }
-
-    info.addEventListener('click', myClick);
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>
